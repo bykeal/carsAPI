@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
+dotenv.config();
 
 const app = require('./app');
 
-const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);//connecting to DB and replac password
-
-mongoose.connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-}).then(()=> console.log("DB was connected successfully"));
+mongoose.connect(`mongodb+srv://chibuike:chibyke1935@cluster0.wnqd5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
+    .catch(err => {
+        console.log("connection failed !!");
+    });
 
 
 
