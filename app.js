@@ -24,7 +24,7 @@ app.get("/", (req,res) => {
 app.use('/api/v1/cars', carRouter);
 
 app.use((req,res,next) => {
-    const err = new Error("Not found");
+    const err = new Error("Page Not found");
     err.status = 404;
     next(err);
 });
